@@ -4,8 +4,8 @@
 - https://developer.amazon.com/docs/custom-skills/use-the-skill-builder-beta-to-define-intents-slots-and-dialogs.html
 
 ## Todo
-- write interaction model
-  - needs unique invocation name ("fortune" is probably taken)
-- write py to parse fortune file
-  - may import to db/dynamo db
-- write py for skill (started sample)
+- [ ] write interaction model
+  - [x] needs unique invocation name ("fortune" is probably taken)
+- [ ] write py to parse fortune file
+  - [ ] may import to db/dynamo db
+- [ ] write py for skill (started sample)
