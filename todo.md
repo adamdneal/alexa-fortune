@@ -7,6 +7,6 @@
 - [ ] write interaction model
   - [x] needs unique invocation name ("fortune" is probably taken)
 - [ ] write py to parse fortune file
-  - [ ] may import to db/dynamo db
+  - [ ] may import to db/dynamo db, but dynamo dones't have built in support for random access
   - [ ] uses strfile format for quicker random access: https://linux.die.net/man/1/strfile
 - [ ] write py for skill (started sample)
