@@ -1,15 +1,24 @@
 import boto3
 
-dyn = boto3.resource('dynamodb')
-table = dyn.Table('fortunes')
+class import_fortune_file:
 
-#print(table.creation_date_time)
+    def s3_read:
+        dyn = boto3.resource('dynamodb')
+        table = dyn.Table('fortunes')
 
-response = table.get_item(
-    Key={
-        'fortune_id': 2
-    }
-)
+        #print(table.creation_date_time)
 
-item = response['Item']
-print(item)
+        response = table.get_item(
+            Key={
+                'fortune_id': 2
+            }
+        )
+
+        item = response['Item']
+        print(item)
+
+    def import_file:
+        f = open("fortunes.txt","r")
+
+        for line in f:
+            pass
