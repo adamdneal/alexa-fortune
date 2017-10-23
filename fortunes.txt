@@ -181,7 +181,7 @@ that is the myth of the atomic age - as in being able to remake ourselves."
   ~Jim Rohn
 %
 "Pleasure can be supported by an illusion; but happiness rests upon truth."
-  ~Sébastien-Roch Nicolas De Chamfort
+  ~Sï¿½bastien-Roch Nicolas De Chamfort
 %
 "Your work is to discover your world and then with all your heart give yourself to it."
   ~Buddha
@@ -420,7 +420,7 @@ that is the myth of the atomic age - as in being able to remake ourselves."
   ~Buddha
 %
 "As for the future, your task is not to foresee it but to enable it."
-  ~Antoine de Saint-Exupéry
+  ~Antoine de Saint-Exupï¿½ry
 %
 "One can never consent to creep when one feels an impulse to soar."
   ~Helen Keller
@@ -15426,7 +15426,7 @@ We must all hang together, or we will surely all hang separately.
 %
 They that can give up essential liberty to obtain a little temporary safety
 deserve neither liberty nor safety.
-        - Benjamin Franklin- 
+        - Benjamin Franklin-ï¿½
 %
 We must remember the First Amendment which protects any shrill jackass
 no matter how self-seeking.
@@ -17523,3 +17523,4 @@ hard to figure out."
 There is no material safety data sheet for astatine. If there were, it would
 just be the word "NO" scrawled over and over in charred blood.
 	- Randall Munroe, "What If?"
+%
