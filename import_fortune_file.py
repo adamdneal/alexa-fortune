@@ -23,17 +23,19 @@ def import_file():
     for line in f:
         line = line.strip()
 
-        if line.startswith("~"):
-            author = line.strip("~")
+        if line.startswith("~") or line.startswith("-"):
+            author = line.strip("~- ")
         elif line == "%":
             i += 1
             insert_record(i, quote, author)
             author = quote = ""
         else:
-            quote = line.strip('"')
+            quote += " " + line.strip('"')
 
 def insert_record(fortune_id, quote, author):
-    if not author:
+    quote = quote.strip()
+
+    if not quote:
         return
 
     dyn = boto3.resource('dynamodb')
