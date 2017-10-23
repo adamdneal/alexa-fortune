@@ -49,6 +49,7 @@ def insert_record(fortune_id, quote, author):
     if author:
         fortune['author'] = author
 
+    print('inserting item {}'.format(fortune_id))
     table.put_item(Item=fortune)
 
 #s3_read()
