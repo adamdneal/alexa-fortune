@@ -8,7 +8,7 @@ def s3_read():
 
     response = table.get_item(
         Key={
-            'fortune_id': 2
+            'fortune_id': 10002
         }
     )
 
@@ -21,18 +21,33 @@ def import_file():
     author = quote = ""
 
     for line in f:
-        i += 1
         line = line.strip()
 
         if line.startswith("~"):
-            author = line
+            author = line.strip("~")
         elif line == "%":
+            i += 1
             insert_record(i, quote, author)
+            author = quote = ""
         else:
             quote = line.strip('"')
 
-def insert_record(id, quote, quthor):
-    pass
+def insert_record(fortune_id, quote, author):
+    if not author:
+        return
+
+    dyn = boto3.resource('dynamodb')
+    table = dyn.Table('fortunes')
+
+    fortune = {
+        'fortune_id': fortune_id,
+        'quote': quote
+    }
+
+    if author:
+        fortune['author'] = author
+
+    table.put_item(Item=fortune)
 
 #s3_read()
 import_file()
