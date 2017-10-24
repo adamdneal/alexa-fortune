@@ -6,10 +6,10 @@
 ## Todo
 - [ ] write interaction model
   - [x] needs unique invocation name ("fortune" is probably taken)
-- [ ] write py to parse fortune file
-  - [ ] may import to db/dynamo db
+- [x] write py to parse fortune file
+  - [x] may import to db/dynamo db
   - [ ] use http://boto3.readthedocs.io/en/latest/guide/dynamodb.html#batch-writing
-  - [ ] ** fix multi-line quote reading **
+  - [x] ** fix multi-line quote reading **
   - [ ] dynamo dones't have built in support for random access. quickest way is to use DescribeTable call (up to 6 hours stale though)
   - [ ] uses strfile format for quicker random access: https://linux.die.net/man/1/strfile
 - [ ] write py for skill (started sample)
