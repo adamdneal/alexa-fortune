@@ -1,20 +1,5 @@
 import boto3
 
-def s3_read():
-    dyn = boto3.resource('dynamodb')
-    table = dyn.Table('fortunes')
-
-    #print(table.creation_date_time)
-
-    response = table.get_item(
-        Key={
-            'fortune_id': 10002
-        }
-    )
-
-    item = response['Item']
-    print(item)
-
 def import_file():
     f = open("fortunes.txt", "r")
     i = 0
@@ -31,6 +16,7 @@ def import_file():
             author = quote = ""
         else:
             quote += " " + line.strip('"')
+
 
 def insert_record(fortune_id, quote, author):
     quote = quote.strip()
@@ -52,5 +38,4 @@ def insert_record(fortune_id, quote, author):
     print('inserting item {}'.format(fortune_id))
     table.put_item(Item=fortune)
 
-#s3_read()
 import_file()
