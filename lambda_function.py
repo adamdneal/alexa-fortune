@@ -62,7 +62,7 @@ def handle_session_end_request():
         None, None, None, should_end_session))
 
 
-def get_random_fortune(intent, session):
+def get_random_fortune(session):
     session_attributes = {}
     reprompt_text = None
 
@@ -72,10 +72,10 @@ def get_random_fortune(intent, session):
 
     fortune = get_fortune(fortune_id)
     speech_output = fortune['Item']['quote']
-    
+
     if 'author' in fortune['Item']:
         speech_output += " - " + fortune['Item']['author']
-    
+
     should_end_session = True
 
     # Setting reprompt_text to None signifies that we do not want to reprompt
@@ -83,6 +83,7 @@ def get_random_fortune(intent, session):
     # understood, the session will end.
     return build_response(session_attributes, build_speechlet_response(
         TITLE, speech_output, reprompt_text, should_end_session))
+
 
 # --------------- Events ------------------
 
@@ -98,8 +99,11 @@ def on_launch(launch_request, session):
 
     print("on_launch requestId=" + launch_request['requestId'] +
           ", sessionId=" + session['sessionId'])
-    # Dispatch to your skill's launch
-    return get_welcome_response()
+
+    #return get_welcome_response() #original
+
+    return get_random_fortune(session)
+    
 
 
 def on_intent(intent_request, session):
@@ -108,12 +112,12 @@ def on_intent(intent_request, session):
     print("on_intent requestId=" + intent_request['requestId'] +
           ", sessionId=" + session['sessionId'])
 
-    intent = intent_request['intent']
+    #intent = intent_request['intent'] # not currently using; no "slots"
     intent_name = intent_request['intent']['name']
 
     # Dispatch to your skill's intent handlers
     if intent_name == "FortuneIntent":
-        return get_random_fortune(intent, session)
+        return get_random_fortune(session)
     elif intent_name == "AMAZON.HelpIntent":
         return get_welcome_response()
     elif intent_name == "AMAZON.CancelIntent" or intent_name == "AMAZON.StopIntent":
@@ -151,6 +155,7 @@ def get_fortunes_count():
     )
 
     return response['Table']['ItemCount']
+    
 
 # --------------- Main handler ------------------
 
@@ -166,7 +171,7 @@ def lambda_handler(event, context):
     prevent someone else from configuring a skill that sends requests to this
     function.
     """
-    if (event['session']['application']['applicationId'] != 
+    if (event['session']['application']['applicationId'] !=
     "amzn1.ask.skill.9ab1b56c-c964-4709-b00d-efa24588e4b9"):
         raise ValueError("Invalid Application ID")
 
